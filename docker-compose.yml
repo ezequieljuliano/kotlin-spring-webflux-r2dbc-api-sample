@@ -1,0 +1,14 @@
+version: '3'
+services:
+  travels-app:
+    image: ezequiel/travels-api-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - travels-postgres-db
+  travels-postgres-db:
+    image: postgres:10.4
+    environment:
+      - POSTGRES_DB=travels
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
