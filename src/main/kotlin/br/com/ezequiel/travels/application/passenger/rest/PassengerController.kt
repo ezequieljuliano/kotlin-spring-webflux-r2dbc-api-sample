@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
+import java.time.Duration
 import java.util.*
 import javax.validation.Valid
 
@@ -26,7 +27,7 @@ class PassengerController(
 
     @GetMapping(produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
     @Operation(description = "List all available passengers")
-    fun listPassengers() = listAllPassengers.execute().map { it.toOutput() }
+    fun listPassengers() = listAllPassengers.execute().map { it.toOutput() }.delayElements(Duration.ofSeconds(1));
 
     @GetMapping("/{id}", produces = [MediaType.APPLICATION_JSON_VALUE])
     @Operation(description = "Returns a passenger by id")

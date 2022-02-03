@@ -1,4 +1,4 @@
-package br.com.ezequiel.travels.application.travel
+package br.com.ezequiel.travels.application.travel.rest
 
 import br.com.ezequiel.travels.application.travel.request.TravelDriverRequest
 import br.com.ezequiel.travels.application.travel.request.TravelToCreateRequest
